@@ -1,0 +1,13 @@
+version: '3.7'
+services:
+  notebook:
+    image: learning-tfp
+    build: .
+    volumes:
+      - type: bind
+        source: .
+        target: /notebooks/probability
+    # working_dir: /notebooks
+    ports:
+      - 11000:8888
+    command: jupyter lab --NotebookApp.token='' --allow-root
